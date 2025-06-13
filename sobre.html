@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sobre Mim - Pedro Raposo</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+      });
+    }
+    window.onload = () => switchLanguage('pt');
+  </script>
+</head>
+<body>
+  <nav style="text-align:right; padding: 1rem;">
+    <button onclick="switchLanguage('pt')">🇧🇷 Português</button>
+    <button onclick="switchLanguage('en')">🇺🇸 English</button>
+    <a href="index.html" class="cta-button">Voltar</a>
+  </nav>
+
+  <section class="section fade-in">
+    <h2 class="section-title"><span class="gradient-text">Sobre Mim</span></h2>
+
+    <div class="profile-section">
+      <div class="profile-image">
+        <img src="assets/images/profile_icon.jpg" alt="Pedro Raposo - Especialista em Blockchain" class="profile-avatar">
+      </div>
+      
+      <div class="about-container" data-lang="pt">
+        <p><strong>Pedro Afonso Dias Raposo</strong><br>Especialista em Blockchain & Criptomoedas</p>
+        <p>
+          Nascido no dia 26 de fevereiro de 1999 em Divinópolis, sou um entusiasta e especialista em tecnologia blockchain e criptomoedas.
+          Minha jornada no mundo cripto começou em 2016 e desde então tenho me dedicado a estudar e desenvolver soluções inovadoras neste ecossistema.
+        </p>
+        <p>
+          Atualmente trabalho como consultor e desenvolvedor de smart contracts, ajudando projetos a implementarem soluções descentralizadas seguras e eficientes.
+          Também sou entusiasta de games NFT.
+        </p>
+      </div>
+
+      <div class="about-container" data-lang="en">
+        <p><strong>Pedro Afonso Dias Raposo</strong><br>Blockchain & Cryptocurrency Specialist</p>
+        <p>
+          Born on February 26, 1999 in Divinópolis, I am a blockchain technology and cryptocurrency enthusiast and specialist.
+          My journey in the crypto world began in 2016 and since then I have been dedicated to studying and developing innovative solutions in this ecosystem.
+        </p>
+        <p>
+          I currently work as a consultant and smart contract developer, helping projects implement secure and efficient decentralized solutions.
+          I'm also passionate about NFT games.
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-form" data-lang="pt">
+      <h3>Entre em Contato</h3>
+      <form action="mailto:pedroraposo1999@gmail.com" method="POST" enctype="text/plain">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Seu e-mail:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit" class="cta-button">Enviar</button>
+      </form>
+    </div>
+
+    <div class="contact-form" data-lang="en">
+      <h3>Contact Me</h3>
+      <form action="mailto:pedroraposo1999@gmail.com" method="POST" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit" class="cta-button">Send</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoExpert | Mercado de Criptomoedas em Tempo Real</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+    });
+  }
+  window.onload = () => switchLanguage('pt');
+</script>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">CRYPTO<span style="color: var(--accent)">EXPERT</span></div>
+    <nav class="nav-links">
+      <a href="#market">Mercado</a>
+      <a href="#news">Notícias</a>
+      <a href="#trends">Tendências</a>
+      <a href="#about">Sobre</a>
+      <a href="sobre.html" class="cta-button">Sobre Mim</a>
+    </nav>
+    <button class="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Mercado <span class="gradient-text">Cripto</span> em Tempo Real</h1>
+      <p>Acompanhe as principais criptomoedas, notícias do setor e tendências emergentes com dados atualizados a cada minuto.</p>
+      <a href="#market" class="cta-button">
+        <i class="fas fa-chart-line"></i> Ver Mercado
+      </a>
+    </div>
+    <div class="hero-bg"></div>
+  </section>
+
+  <!-- Crypto Market Section -->
+  <section id="market" class="section">
+    <h2 class="section-title">Mercado <span class="gradient-text">Global</span></h2>
+    
+    <div class="market-data">
+      <div class="market-card glass-card">
+        <div class="market-title">Capitalização de Mercado</div>
+        <div class="market-value" id="market-cap"></div>
+      </div>
+      
+      <div class="market-card glass-card">
+        <div class="market-title">Volume 24h</div>
+        <div class="market-value" id="market-volume"></div>
+      </div>
+      
+      <div class="market-card glass-card">
+        <div class="market-title">Dominância BTC</div>
+        <div class="market-value" id="btc-dominance"></div>
+      </div>
+    </div>
+    
+    <div class="crypto-controls">
+      <h3 class="section-subtitle">Principais Criptomoedas</h3>
+      <div class="controls-right">
+        <button id="refresh-crypto" class="refresh-button">
+          <i class="fas fa-sync-alt"></i> Atualizar
+        </button>
+        <div class="last-updated" id="last-updated">Última atualização: --:--</div>
+      </div>
+    </div>
+    
+    <div class="crypto-grid" id="crypto-prices">
+      <!-- Conteúdo será carregado dinamicamente -->
+    </div>
+
+    <!-- Gráfico de Variação -->
+    <div class="crypto-chart-container glass-card">
+      <h3>Variação 24h (%)</h3>
+      <canvas id="cryptoChart" width="400" height="200"></canvas>
+    </div>
+  </section>
+
+  <!-- News Section -->
+  
+<section id="news" class="news-section section">
+  <h2 class="section-title">Fontes <span class="gradient-text">Brasileiras</span></h2>
+  <p class="section-subtitle">Fique por dentro das principais fontes nacionais sobre criptoeconomia e blockchain.</p>
+  <div class="news-grid" id="news-grid">
+    <!-- Cards de notícias serão carregados dinamicamente aqui -->
+  </div>
+</section>
+
+
+  <!-- Trends Section -->
+  <section id="trends" class="section">
+    <h2 class="section-title">Tendências <span class="gradient-text">Emergentes</span></h2>
+    
+    <div class="trends-grid">
+      <div class="trend-card glass-card">
+        <div class="trend-tag">NFTs</div>
+        <h4 class="trend-title">Mercado de NFTs em Recuperação</h4>
+        <p>Novos projetos de NFTs estão ganhando tração com foco em utilidade real e comunidades engajadas.</p>
+        <div class="trend-stats">
+          <div class="trend-stat">Volume: <strong>$2.3B</strong></div>
+          <div class="trend-stat">Crescimento: <strong>+15%</strong></div>
+        </div>
+      </div>
+      
+      <div class="trend-card glass-card">
+        <div class="trend-tag">Layer 2</div>
+        <h4 class="trend-title">Soluções de Escalabilidade</h4>
+        <p>Redes Layer 2 como Arbitrum e Optimism continuam crescendo em adoção e volume de transações.</p>
+        <div class="trend-stats">
+          <div class="trend-stat">TVL: <strong>$8.7B</strong></div>
+          <div class="trend-stat">Crescimento: <strong>+28%</strong></div>
+        </div>
+      </div>
+      
+      <div class="trend-card glass-card">
+        <div class="trend-tag">AI + Crypto</div>
+        <h4 class="trend-title">Inteligência Artificial</h4>
+        <p>Projetos que combinam IA e blockchain estão atraindo investimentos significativos e interesse institucional.</p>
+        <div class="trend-stats">
+          <div class="trend-stat">Projetos: <strong>150+</strong></div>
+          <div class="trend-stat">Crescimento: <strong>+45%</strong></div>
+        </div>
+      </div>
+      
+      <div class="trend-card glass-card">
+        <div class="trend-tag">Gaming</div>
+        <h4 class="trend-title">GameFi Evolution</h4>
+        <p>Jogos blockchain focam em gameplay divertido primeiro, com elementos de economia tokenizada integrados.</p>
+        <div class="trend-stats">
+          <div class="trend-stat">Usuários: <strong>2.1M</strong></div>
+          <div class="trend-stat">Crescimento: <strong>+22%</strong></div>
+        </div>
+      </div>
+      
+      <div class="trend-card glass-card">
+        <div class="trend-tag">RWA</div>
+        <h4 class="trend-title">Real World Assets</h4>
+        <p>Tokenização de ativos do mundo real ganha momentum com regulamentações mais claras.</p>
+        <div class="trend-stats">
+          <div class="trend-stat">Valor: <strong>$12B</strong></div>
+          <div class="trend-stat">Crescimento: <strong>+67%</strong></div>
+        </div>
+      </div>
+      
+      <div class="trend-card glass-card">
+        <div class="trend-tag">Staking</div>
+        <h4 class="trend-title">Liquid Staking</h4>
+        <p>Protocolos de liquid staking oferecem flexibilidade mantendo recompensas de validação de rede.</p>
+        <div class="trend-stats">
+          <div class="trend-stat">Staked: <strong>$45B</strong></div>
+          <div class="trend-stat">APY: <strong>5.2%</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2 class="section-title">Sobre o <span class="gradient-text">CryptoExpert</span></h2>
+    
+    <div class="about-content">
+      <div class="about-text">
+        <p>O CryptoExpert é sua fonte confiável para informações atualizadas sobre o mercado de criptomoedas. Nossa plataforma oferece dados em tempo real, análises detalhadas e insights sobre as principais tendências do setor.</p>
+        
+        <p>Com uma interface moderna e intuitiva, fornecemos acesso fácil a cotações, notícias e análises que ajudam investidores e entusiastas a tomar decisões informadas no dinâmico mundo das criptomoedas.</p>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <i class="fas fa-chart-line"></i>
+            <h4>Dados em Tempo Real</h4>
+            <p>Cotações atualizadas a cada minuto</p>
+          </div>
+          
+          <div class="feature-item">
+            <i class="fas fa-newspaper"></i>
+            <h4>Notícias Relevantes</h4>
+            <p>Principais fontes crypto</p>
+          </div>
+          
+          <div class="feature-item">
+            <i class="fas fa-trending-up"></i>
+            <h4>Análise de Tendências</h4>
+            <p>Insights sobre movimentos do mercado</p>
+          </div>
+          
+          <div class="feature-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h4>Design Responsivo</h4>
+            <p>Acesso perfeito em qualquer dispositivo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#market">Mercado</a>
+        <a href="#news">Notícias</a>
+        <a href="#trends">Tendências</a>
+        <a href="#about">Sobre</a>
+      </div>
+      
+      <div class="social-links">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+      </div>
+      
+      <div class="api-badges">
+        <div class="api-badge">Powered by CoinGecko API</div>
+        <div class="api-badge">Real-time Data</div>
+        <div class="api-badge">Secure & Reliable</div>
+      </div>
+      
+      <p>&copy; 2024 CryptoExpert. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+
